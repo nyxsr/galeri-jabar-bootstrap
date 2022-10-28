@@ -1,0 +1,274 @@
+body{
+  overflow-x: hidden;
+  background-color: #fafafa;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+@media screen and (max-width:767px){
+  blockquote{
+    width: 90vw !important;
+  }
+}
+.header-homepage {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 96.82%
+      ),
+      linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #fafafa 86.53%),
+      url(../img/homepage-img.png) no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+  .item-header-homepage {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    color: #fafafa;
+    animation: fadeIn 2s;
+  }
+  @media screen and (max-width:767px) {
+    .item-header-homepage{
+      padding-top: 10rem;
+    }
+  }
+  .item-header-homepage > h4 {
+    font-size: 2.375rem;
+  }
+  .item-header-homepage > h1 {
+    font-size: 4.1rem;
+  }
+  .item-header-homepage > a {
+    font-size: 2.2rem;
+    text-decoration: none;
+    margin-top: 2rem;
+    background-color: #fed326;
+    color: #302e2e;
+    padding: 16.48px 21.97px;
+    border-radius: 1rem;
+    font-weight: 600;
+  }
+  .item-header-homepage > a:hover {
+    box-shadow: 0px 0px 105px 10px rgba(254, 211, 38, 0.9);
+    transition: all 0.5s;
+    background: rgb(254, 211, 38);
+    background: radial-gradient(
+      circle,
+      rgba(254, 211, 38, 1) 0%,
+      rgba(255, 225, 103, 1) 40%,
+      rgba(252, 228, 131, 1) 52%,
+      rgba(255, 244, 201, 1) 99%
+    );
+  }
+  .events-homepage {
+    width: 85vw;
+    margin: auto;
+  }
+  .events-homepage > h3 {
+    font-size: 2.375rem;
+    margin-top: 5rem;
+  }
+  @media screen and (max-width:767px) {
+    .events-homepage > h3{
+      text-align: center;
+    }
+  }
+  .events-homepage > hr {
+    border-color: #fed326;
+  }
+  .events-homepage > .comp-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0 2rem 0;
+    margin-top: 2rem;
+    gap: 4rem;
+  }
+  .card {
+    width: 25rem;
+    border: none;
+    background-color: #fafafa;
+  }
+  @media screen and (max-width:767px) {
+    .card{
+      width: 21rem;
+    }
+  }
+  .card > a {
+    color: #fed326;
+  }
+  .card > a > h5 {
+    font-size: 1.875rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .action-events-homepage {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  .action-events-homepage > a {
+    color: #302e2e;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: #fed326;
+    padding: 1rem;
+    width: max-content;
+    border-radius: 10px;
+  }
+  
+  @media screen and (max-width:767px) {
+    .batik-img{
+      max-height: 2rem;
+      margin-top: 5rem;
+    }
+    .batik-img:last-of-type{
+      display: none;
+    }
+    .copywriting-section-1{
+      flex-direction: column !important;
+      text-align: center;
+    }
+    .copywriting-section-1 > .col-md-5{
+      order: 1;
+    }
+    .copywriting-section-1 > .col-md-5 > img{
+      padding: 0 !important;
+      max-height: 10rem;
+      object-fit: cover;
+      box-shadow: 0px -16px 30px 0px rgba(0,0,0,0.75);
+    }
+    .copywriting-section-1 > .col-md-6{
+      order: 2;
+      max-width: fit-content;
+      padding-right:5rem ;
+      padding-top: 3rem;
+    }
+    .copywriting-section-1 > .col-md-6 > p {
+      padding-bottom: 2rem;
+    }
+    .copywriting-section-2{
+      flex-direction: column !important;
+    }
+    .copywriting-section-2 > .col-md-6{
+      order: 1;
+    }
+    .copywriting-section-2 > .col-md-6 > img{
+      padding: 0 !important;
+      max-height: 10rem;
+      object-fit: cover;
+      margin-top: 5rem;
+    }
+    .copywriting-section-2 > .col-md-5{
+      order: 2;
+      max-width: fit-content;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 3rem;
+    }
+    .copywriting-section-2 > .col-md-5 > h1{
+      text-align: center !important;
+    }
+    .copywriting-section-2 > .col-md-5 > p {
+      padding-bottom: 2rem;
+      text-align: center !important;
+    }
+    .bigLogo{
+      padding: 0 !important;
+    }
+    .footer-section > .col-md-4:nth-child(2) > p{
+      padding-top: 3rem;
+    }
+    #map{
+      margin-bottom: 5rem;
+    }
+    .gallery-item > img{
+      width: 50% !important;
+      height: 10rem !important;
+    }
+    .gallery-item:last-child > img{
+      width: 80% !important;
+      height: 10rem !important;
+    }
+    /* .copywriting-section-1 > .col-md-6 */
+  }
+
+  .gallery-item::-webkit-scrollbar{
+    display: none;
+  }
+  .form-search{
+    width:20rem; 
+    border: 1px solid #fed326 ; 
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: -2rem;
+  }
+  .button-collapse{
+    display: none;
+  }
+  @media screen and (max-width:767px) {
+    .form-search{
+      margin-top: 1rem;
+    }
+    .karya-item{
+      flex-direction: column;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .karya-item > div> img{
+      width: 100%;
+    }
+    .karya-item > div> h5{
+      font-size: 2rem;
+    }
+    .filter{
+      display: none;
+    }
+    .button-collapse{
+      display: block;
+      border: none;
+      background-color: #fed326;
+      padding: 1rem;
+    }
+  }
+
+  .form-search:focus-within{
+    box-shadow: 0px 0px 20px 10px rgba(254, 211, 38, 0.9);
+    transition: all;
+    transition-duration: 0.5s;
+  }
+  .form-search > input:focus{
+    outline: none;
+  }
+  .login-section{
+    background-color: #fed326;
+  }
+  @media screen and (max-width:767px) {
+    .login-section{
+      padding-bottom: 2rem;
+    }
+    .carousel-wrapper{
+      padding: 0 !important;
+      margin-bottom: 3rem;
+    }
+    .carousel-inner{
+      width: 100vw!important;
+    }
+    .floating-text{
+      left: 0% !important;
+      text-align: right;
+      font-size: 5rem !important;
+      margin-top: 17rem;
+    }
+    .floating-text-register{
+      top:12% !important;
+      left: 0% !important;
+      text-align: right;
+      font-size: 5rem !important;
+      margin-top: 17rem;
+    }
+  }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <div id="greetings" style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100vw; font-size: 3rem; flex-direction: column;"></div>
+    <script>
+        var queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString)
+        const role = urlParams.get('role')
+        if (role == 'admin') {
+            document.getElementById('greetings').innerHTML += '<p>This is Admin Page, but still WIP 🚧</p><a href ="../login.html">Send Me Back Home</a>'
+        }else{
+            document.getElementById('greetings').innerHTML += '<p>This is User Page, but still WIP 🚧</p><a href ="../login.html">Send Me Back Home</a>'
+        }
+    </script>
+</body>
+</html>
