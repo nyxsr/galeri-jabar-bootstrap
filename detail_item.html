@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri | Galeri Lukis Jabar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      defer
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header
+      class="header-homepage"
+      style="
+        background: url('./assets/img/image\ 12.png');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+      "
+    >
+      <div class="item-header-homepage">
+        <h1 class="display-1 fw-bold" id="big-title">Events</h1>
+        <h4>Galeri Lukis Jawa Barat</h4>
+        <blockquote style="width: 40vw">
+          <q
+            >Senang itu adalah saat kita bisa mengagumi karya orang lain, seni
+            itu adalah keindahan yang memberikan hak penuh pada setiap insan
+            untuk menikmatinya tanpa eksklusivitas.</q
+          >
+          <br /><cite>Melly Goeslow</cite>
+        </blockquote>
+      </div>
+    </header>
+    <nav class="navbar fixed-top navbar-expand-lg bg-light">
+      <div class="container-fluid mx-5">
+        <a class="navbar-brand" href="#"
+          ><img src="./assets/img/logo.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul
+            class="navbar-nav"
+            style="flex: 2; display: flex; justify-content: center"
+          >
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./galeri.html">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./events.html">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./karya.html">Karya Seni</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./daftar.html">Daftar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="container" style="margin-top: 7rem">
+        <div class="row">
+          <div class="col-md-6" id="detail-products"></div>
+          <div class="col-md-6">
+            <p id="title-item" class="fs-1">Title Item</p>
+            <hr style="border-color: #fed326; border-width: 2px" />
+            <div class="d-flex" id="detail"></div>
+            <div class="d-flex justify-content-end me-5 gap-3" id="btn-group"></div>
+          </div>
+        </div>
+      </section>
+      <div class="container-fluid" style="margin-top: 5rem">
+        <div class="row p-3" style="background-color: #302e2e">
+          <p class="text-center text-white">Copyright 2022 © created with ♥</p>
+        </div>
+      </div>
+    </main>
+    <script>
+      const bigTitle = document.getElementById("big-title");
+      const titleItem = document.getElementById("title-item");
+      const detail = document.getElementById("detail");
+      const titleDetail = document.getElementById("title-detail");
+      const detailProd = document.getElementById("detail-products");
+      const btnGroup = document.getElementById("btn-group");
+
+      let queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const category = urlParams.get("category");
+      const titleData = urlParams.get("item");
+
+      if (category == "events") {
+        bigTitle.innerText = `${titleData}`;
+        titleItem.innerText = `${titleData}`;
+        detailProd.innerHTML += `<div id="map" style="width: 30rem; height: 30rem;"></div>`;
+        detail.innerHTML += `
+            <div class="d-flex flex-column">
+                            <p>Tema</p>
+                            <p>Tanggal</p>
+                            <p>Publisitas</p>
+                            <p>Harga</p>
+                            <p>Pelukis</p>
+                        </div>
+                        <div>
+                            <p>: <span id="title-detail">${titleData}</span></p>
+                            <p>: <span>01 Januari 2022</span></p>
+                            <p>: <span>Umum</span></p>
+                            <p>: <span>Rp.50.000</span></p>
+                            <p class="d-flex flex-column"><span> - Raden Saleh </span><span> - Ujang Da Vinci </span><span> - Asep Milennium </span></p>
+                        </div>
+            `;
+        btnGroup.innerHTML += `<a href='#' class="btn btn-warning">Beli Tiket</a>`;
+      } else if (category == "karya") {
+        bigTitle.innerText = `${titleData}`;
+        titleItem.innerText = `${titleData}`;
+        detailProd.innerHTML += `<img style="width: 30rem; height: 30rem;" src='./assets/img/TTP-01-Raden-Saleh 1.png'/>`;
+        detail.innerHTML += `
+            <div class="d-flex flex-column">
+                            <p>Tanggal Lukis</p>
+                            <p>Jenis Kanvas</p>
+                            <p>Dimensi</p>
+                            <p>Harga</p>
+                            <p>Pelukis</p>
+                            <p>Aliran</p>
+                        </div>
+                        <div>
+                            <p>: <span id="title-detail">1808-1889</span></p>
+                            <p>: <span>Canvas</span></p>
+                            <p>: <span>110x180cm</span></p>
+                            <p>: <span>Rp.120.000.000.000</span></p>
+                            <p>: <span>Raden Saleh</span></p>
+                            <p>: <span>Romantisisme</span></p>
+                        </div>
+            `;
+        btnGroup.innerHTML += `<a href='#' class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg> Suka</a>
+                            <a href='#' class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg> Beli</a>
+                            `;
+      }
+
+      var map = L.map("map").setView(
+        [-6.917277418008344, 107.59574887304846],
+        15
+      );
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      L.marker([-6.917277418008344, 107.59574887304846])
+        .addTo(map)
+        .bindPopup(
+          "<center><img src='/assets/img/logo.png' width='120' height='50'/><br>Kunjungi Kami Disini!</center>"
+        )
+        .openPopup();
+
+      const selectTime = document.getElementById("select-time");
+      const title = document.getElementById("title");
+
+      selectTime.onchange = () => {
+        if (selectTime.value == 1) {
+          title.innerText = "Events Sekarang";
+        } else if (selectTime.value == 2) {
+          title.innerText = "Events yang akan datang";
+        } else {
+          title.innerText = "Events Galeri Lukis Jabar";
+        }
+      };
+    </script>
+  </body>
+</html>
