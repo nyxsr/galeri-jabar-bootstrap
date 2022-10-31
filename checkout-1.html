@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="link-title">Checkout | Galeri Lukis Jabar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      defer
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid mx-5">
+        <a class="navbar-brand" href="./index.html"
+          ><img src="./assets/img/logo.png" alt=""
+        /></a>
+      </div>
+    </nav>
+    <main>
+      <section class="container" style="background-color: #ebebeb; height: 75vh;">
+        <div class="row p-5">
+            <div class="col-12">
+                <h1>Detail Checkout</h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4" style="padding-left: 2rem; padding-bottom: 2rem;" id="content-product">
+               
+            </div>
+            <div class="col-md-8 pe-5">
+                <div class="mb-3">
+                    <p id="type-item">Nama Events :</p>
+                    <p id="title-item" class="fw-bold">Title Item</p>
+                </div>
+                <div class="mb-3">
+                    <p>Nama Penerima :</p>
+                    <p class="fw-bold">Sahrul Ramdan</p>
+                </div>
+                <div class="mb-5">
+                    <p>Alamat :</p>
+                    <p class="fw-bold" id="users-address">Kp. Sembung 2 RT 07/04 Desa Gunung Sembung, Kec. Pagaden, Kab.Subang, 41252</p>
+                </div>
+                <div style="margin-top: 10rem;" class="d-flex justify-content-end gap-4">
+                    <button class="btn btn-danger">Batal</button>
+                    <button class="btn btn-info" id="btn-edit">Edit Alamat</button>
+                    <button class="btn btn-success">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+      </section>
+      <div class="container-fluid" style="margin-top: 5rem">
+        <div class="row p-3" style="background-color: #302e2e">
+          <p class="text-center text-white">Copyright 2022 © created with ♥</p>
+        </div>
+      </div>
+    </main>
+    
+    <script>
+     const content = document.getElementById('content-product')
+     const type = document.getElementById('type-item')
+     const title = document.getElementById('title-item')
+     const btnEdit = document.getElementById('btn-edit')
+     const userAddress = document.getElementById('users-address')
+
+    let queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString)
+    const data = urlParams.get('item')
+    const dataName = urlParams.get('name')
+
+    if (!data) {
+        content.innerHTML += `<div id="map" style="width:100%; height:100%;"></div>`
+        type.innerText = `Nama Events :`
+        title.innerText = `${dataName}`
+    }else{
+        content.innerHTML += `<img src="./assets/img/${data}" style="width:100%;object-fit:cover;" alt="">`
+        type.innerText = `Nama Lukisan :`
+        title.innerText = `${dataName}`
+    }
+
+    btnEdit.onclick = () =>{
+        let tanyaEdit = prompt('Masukkan Alamat Baru','Kp.Sembung 2 RT 07/04 Desa Gunung Sembung, Kec.Pagaden, Kab.Subang, 41252')
+        userAddress.innerText = `${tanyaEdit}`
+    }
+
+    var map = L.map("map").setView(
+        [-6.917277418008344, 107.59574887304846],
+        15
+      );
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      L.marker([-6.917277418008344, 107.59574887304846])
+        .addTo(map)
+        .bindPopup(
+          "<center><img src='https://source.unsplash.com/120x50?venue' width='120' height='50'/><br>Lokasi Events</center>"
+        )
+        .openPopup();
+    </script>
+  </body>
+</html>
